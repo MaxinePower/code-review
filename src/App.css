@@ -1,38 +1,169 @@
-.App {
+/* setup snippet */
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+/* -------------some general styling----------------- */
+* {
+  margin: 0;
+  padding: 0;
+}
+html { font-size: 125%;}
+body, * {
+  font-size: 0.9rem;
+  color: #170B00;
+  background-color: #faf0dc;
   text-align: center;
+  font-family: 'Fredoka', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  position: relative;
   min-height: 100vh;
+  padding-bottom: 50px;
+}
+.wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+h1, h2, h3 {
+  font-weight: 600;
+}
+h1 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  border-bottom: 2px solid #452A13;
+}
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+/* -----------form styling---------------- */
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 25px;
+}
+/* --------form. number of cats option styling--------- */
+fieldset {
+  font-family: 'Fredoka', sans-serif;
+  padding: 20px;
+  margin-bottom: 5px;
+  border: 2px solid #6B4625;
+}
+legend {
+  font-size: 1rem;
+}
+fieldset label {
+  margin-left: 20px;
+  border: 3px solid #170B00;
+  border-radius: 10px;
+  padding: 3px 7px;
+  background-color: #452A13;
+  color: #faf0dc;
+  font-size: 1rem;
+}
+fieldset label:first-of-type {
+  margin-left: 0;
+}
+fieldset label:hover, fieldset label:focus, input[type="radio"]:checked + label {
+  background-color: #C9A483;
+  color: #170B00;
+}
+input[type=radio] {
+  display: none;
+}
+/* ---------form. theme dropdown styling ---------- */
+.dropDownLabel {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+select {
+  font-family: 'Fredoka', sans-serif;
+  margin-bottom: 15px;
+  background-color: #C9A483;
+  border: 2px solid #251a14;
+  padding: 7px;
+  border-radius: 3px;
+}
+select:hover, select:focus, select:focus-within {
+  background-color: #251a14;
+  color: #fadabe;
+}
+option {
+  background-color: #C9A483;
+  text-transform: capitalize;
+}
+/* --------form. submit button styling---------- */
+form button {
+  background-color: #452A13;
+  padding: 10px 15px;
+  border: 3px solid #6B4625;
+  color: #fadabe;
+  font-weight: 700;
+  border-radius: 3px;
+}
+form button:focus, form button:hover {
+  background-color: #C9A483;
+  border: 3px solid #452A13;
+  color: #452A13;
+}
+
+/* -----------gallery styling------------- */
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+li {
+  min-width: 150px;
+  width: calc(33% - 20px);
+  margin: 15px 5px;
+  padding: 10px;
+  background-color: #251a14;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 5px solid #6B4625;
+  border-radius: 3px;
+}
+img {
+  width: 100%;
+  max-width: 250px
 }
 
-.App-link {
-  color: #61dafb;
+/* ----------------footer styling---------------- */
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+footer p {
+  background-color: #170B00;
+  padding: 10px 0;
+}
+footer p, footer a {
+  color: #C9A483;
+}
+footer a:focus, footer a:hover {
+  color: #faf0dc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ---------media query------------- */
+@media (max-width: 550px) {
+  fieldset { 
+    max-width: 275px;
   }
-  to {
-    transform: rotate(360deg);
+  fieldset label {
+    margin-left: 10px;
   }
+  .wrapper { width: 95%; }
 }
